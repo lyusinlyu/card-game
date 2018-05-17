@@ -1,0 +1,20 @@
+.wrapper-cont {
+	max-width: 700px;
+}
+
+.card-row {
+	justify-content: center;
+}
+
+.card {
+	margin: 5px;
+}
+
+.card img {
+	width: 150px;
+	height: 235px;
+}
+
+.front {
+	display: none;
+}
