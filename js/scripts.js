@@ -6,7 +6,7 @@ $(document).ready(function() {
 	var card1Name = null;
 	var clickable = true;
 	var cards = [ "valet", "man", "queen", "eagle", "flag", "dog", ];
-	var h2 = document.getElementsByTagName('h2')[0], seconds = 0, minutes = 0, hours = 0, timeout;
+	var h2 = document.getElementsByTagName('h2')[1], seconds = 0, minutes = 0, hours = 0, timeout;
 
 	// Doublicates the given array, shuffles it, then fills DOM with card-items
 	function startNewGame(arr) {
@@ -73,8 +73,8 @@ $(document).ready(function() {
 
 	// Alerts the end of the game, current time result, and shows the replay button
 	function endGame(time) {
-		var message = "Your Time Is " + time;
-		alert(message);
+		var message = "<span>Your Time Result Is </span>" + time;
+		$('.time-result').html(message);
 		$('.header').css('display', 'flex');
 	}
 
@@ -123,7 +123,7 @@ $(document).ready(function() {
 			}
 		}
 
-		if ( success === cards.length ) {
+		if ( success === 6 ) {
 			var timePassed = h2.textContent;
 			clearTimeout(timeout);
 			clearTime();

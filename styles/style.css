@@ -9,6 +9,7 @@
     background: rgba(0,0,0,0.7);
     z-index: 1000;
     display: none;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -21,6 +22,15 @@
     font-weight: 600;
     letter-spacing: 2px;
     font-size: 20px;
+}
+
+.header .time-result {
+	color: #eee;
+	margin-bottom: 20px;
+}
+
+.time-result span {
+	color: #e3efee;
 }
 
 .card-row {
