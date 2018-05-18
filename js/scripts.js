@@ -86,18 +86,18 @@ $(document).ready(function() {
 		replayGame();
 	});
 
-	$(document).on("click",".img-card",function(){
+	$(document).on("click",".back",function(){
 
 		if (!clickable) {
 			return;
 		} 
 
 		if (!card1Id) {
-			card1Id = $(this).attr('id');
+			card1Id = $(this).parent().attr('id');
 			card1Name = $('#' + card1Id).attr('name');
 			openCard(card1Id);
 		} else {
-			var card2Id = $(this).attr('id');
+			var card2Id = $(this).parent().attr('id');
 			var card2Name = $('#' + card2Id).attr('name');
 			openCard(card2Id);
 
