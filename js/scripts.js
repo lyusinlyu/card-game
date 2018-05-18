@@ -5,8 +5,8 @@ $(document).ready(function() {
 	var card1Id = null;
 	var card1Name = null;
 	var clickable = true;
-	var cards = [ "valet", "man", "queen", "eagle", "flag", "dog", ];
-	var h2 = document.getElementsByTagName('h2')[1], seconds = 0, minutes = 0, hours = 0, timeout;
+	var cards = [ "valet", "man", "queen", "eagle", "flag", "dog" ];
+	var h2 = document.getElementById('time'), seconds = 0, minutes = 0, hours = 0, timeout;
 
 	// Doublicates the given array, shuffles it, then fills DOM with card-items
 	function startNewGame(arr) {
@@ -20,7 +20,7 @@ $(document).ready(function() {
 
 		for (var i = 0; i < arr.length; i++) {
 			var name = arr[i];
-			$('.card-row').append('<div id="'+i+'" name="'+name+'" class="col-3 img-card"><img src="images/main.jpg" class="img-fluid back"><img src="images/'+name+'.jpg" class="img-fluid front"></div>');
+			$('.card-row').append('<div id="card_'+i+'" name="'+name+'" class="col-3 img-card"><img src="images/main.jpg" class="img-fluid back"><img src="images/'+name+'.jpg" class="img-fluid front"></div>');
 		}
 
 		timer();
@@ -61,8 +61,8 @@ $(document).ready(function() {
 	    timer();
 	}
 
-	function clearTime() {
-		h2.textContent = "00:00:00";
+	function clearTime(time) {
+		h2.textContent = time;
 	    seconds = 0; minutes = 0; hours = 0;
 	}
 
@@ -86,7 +86,7 @@ $(document).ready(function() {
 		card1Id = null;
 		card1Name = null;
 		clickable = true;
-		h2 = document.getElementsByTagName('h2')[0], seconds = 0, minutes = 0, hours = 0, timeout;
+		h2 = document.getElementById('time'), seconds = 0, minutes = 0, hours = 0, timeout;
 		startNewGame(cards);
 	}
 
@@ -123,10 +123,10 @@ $(document).ready(function() {
 			}
 		}
 
-		if ( success === 6 ) {
+		if (success === cards.length) {
 			var timePassed = h2.textContent;
 			clearTimeout(timeout);
-			clearTime();
+			clearTime(timePassed);
 			setTimeout(function() {
 				endGame(timePassed);
 			},1200);
