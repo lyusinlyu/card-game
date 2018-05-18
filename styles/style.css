@@ -2,19 +2,46 @@
 	max-width: 700px;
 }
 
+.header {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%);
+    z-index: 1000;
+    display: none;
+}
+
+.header button {
+	padding: 7px 30px;
+    background: orange;
+    border-color: orange;
+    border-radius: 2px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    font-size: 20px;
+}
+
 .card-row {
 	justify-content: center;
 }
 
-.card {
-	margin: 5px;
+.img-card {
+	margin: 7px 0;
 }
 
-.card img {
-	width: 150px;
-	height: 235px;
+.img-card img {
+	width: 200px;
+	height: 200px;
 }
 
 .front {
 	display: none;
+}
+.time {
+  font-size: 46px;
+  letter-spacing: 2px;
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  color: #666;
 }
