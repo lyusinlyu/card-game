@@ -1,4 +1,6 @@
 $(document).ready(function() {
+
+	// Global variables declaration
 	var success = 0;
 	var card1Id = null;
 	var card1Name = null;
@@ -6,6 +8,7 @@ $(document).ready(function() {
 	var cards = [ "valet", "man", "queen", "eagle", "flag", "dog", ];
 	var h2 = document.getElementsByTagName('h2')[0], seconds = 0, minutes = 0, hours = 0, timeout;
 
+	// Doublicates the given array, shuffles it, then fills DOM with card-items
 	function startNewGame(arr) {
 		var arr2 = [];
 
@@ -25,11 +28,12 @@ $(document).ready(function() {
 
 	startNewGame(cards);
 
-
+	// Hides the back-side card img, and shows the front-side one.
 	function openCard(cardId) {
 		$('#' + cardId + ' .back').css('display', 'none').next().show();
 	}
 
+	// Hides the front-side card img, and shows the back-side one. Sets global variables to default values. 
 	function closeCards(cardId1, cardId2) {
 		$('#' + cardId1 + ' .front, #' + cardId2 + ' .front' ).css('display', 'none').prev().show();
 		card1Id = null;
@@ -37,6 +41,7 @@ $(document).ready(function() {
 		clickable = true;
 	}
 
+	// Timer functions start
 	function addTime() {
 	    seconds++;
 
@@ -64,13 +69,16 @@ $(document).ready(function() {
 	function timer() {
 	    timeout = setTimeout(addTime, 1000);
 	}
+	// Timer functions end
 
+	// Alerts the end of the game, current time result, and shows the replay button
 	function endGame(time) {
 		var message = "Your Time Is " + time;
 		alert(message);
 		$('.header').css('display', 'flex');
 	}
 
+	// Hides replay button. Empty .card-row element, sets global variables to their default values, and refill the DOM with cards
 	function replayGame() {
 		$('.header').hide();
 		$('.card-row').html("");
@@ -82,10 +90,12 @@ $(document).ready(function() {
 		startNewGame(cards);
 	}
 
+	// replay button click handler
 	$(document).on("click", ".replay", function() {
 		replayGame();
 	});
 
+	// Card-items click handler
 	$(document).on("click",".back",function(){
 
 		if (!clickable) {
